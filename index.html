@@ -2,20 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>css animation
-    </title>
-    <link rel="stylesheet" href="./index.css">
+    <title>Will You Be Mine??</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebee;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        .heading {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+        .btn {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 1.5s infinite;
+        }
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 24px;
+            }
+            .btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: 20px;
+            }
+            .btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="marco">
-        <div id="cielo"></div>
-              <div id="luna"></div>
-              <div id="gato"></div>
-              <div id="muro"></div>
-              <div id="edificios"></div>
-      </div>
-    
+    <h1 class="heading">Will You Be Mine Forever? ❤️</h1>
+    <button class="btn" onclick="redirectToPromisePage()">Of course, Yes! 💖</button>
+    <script>
+        function redirectToPromisePage() {
+            window.location.href = "promise.html";
+        }
+    </script>
 </body>
 </html>

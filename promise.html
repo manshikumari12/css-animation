@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Day Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebee;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            animation: heartbeat 1.5s infinite;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+        .heart:after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes heartbeat {
+            0% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+            50% { transform: translateX(-50%) rotate(-45deg) scale(1.2); }
+            100% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+        }
+        .quote {
+            margin-top: 60px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding: 10px;
+        }
+        .quote::before, .quote::after {
+            content: "❤️ ";
+        }
+        @keyframes fall-hearts {
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .falling-heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: fall-hearts 5s linear infinite;
+        }
+        .heading {
+            margin-top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #d32f2f;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .card {
+                max-width: 90%;
+                padding: 20px;
+            }
+            .heart {
+                width: 80px;
+                height: 80px;
+            }
+            .heart:before, .heart:after {
+                width: 80px;
+                height: 80px;
+            }
+            .quote {
+                font-size: 14px;
+            }
+            .heading {
+                font-size: 22px;
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                padding: 15px;
+            }
+            /* .heart {
+                width: 60px;
+                height: 60px;
+            } */
+            /* .heart:before, .heart:after {
+                width: 60px;
+                height: 60px;
+            } */
+            .quote {
+                font-size: 12px;
+            }
+            .heading {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="heart"></div>
+        <p class="quote">I promise to stand by your side through every storm and sunshine. No matter where life takes us, my love for you will only grow stronger with time. I promise to love you not just today, but every single day of my life. With every heartbeat, I will respect, and love you endlessly. I may not be perfect, but I promise to love you with all my heart forever and always. You are my today and all of my tomorrows, and I promise to be yours, always. ❤️</p>
+    </div>
+    <h2 class="heading">Promise By My Side</h2>
+    <script>
+        function createFallingHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("falling-heart");
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createFallingHeart, 500);
+    </script>
+</body>
+</html>
